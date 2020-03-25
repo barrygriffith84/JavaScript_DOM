@@ -1,3 +1,12 @@
+//notes
+// function darkMode(){
+//     document.body.style.background = "gray";
+//   }
+//   function lightMode(){
+//       document.body.style.background = "white";
+//   }
+
+
 // Lightning Exercise
 // Hello, world
 
@@ -6,9 +15,9 @@
 //Use document.querySelector to target your #hello-container
 //User the .innerHTML property to insert the value of your greeting variable into your #hello-container element.
 
+var greeting= "Hello, world!";
+document.querySelector("#hello-container").innerHTML = greeting;
 
-var greeting = document.querySelector("#hello-container");
-greeting.innerHTML = "Hello, world!";
 
 // Lightning Exercise
 // Keeping track of chores
@@ -119,51 +128,58 @@ for(i = 0; i < sandwichToppings.length; i++){
 
 // In your JavaScript file, copy and paste the following array of objects:
 
-// var movieSchedule = [
-//   {
-//     title: "Ralph Breaks the Internet",
-//     rating: "PG",
-//     currentlyPlaying: true,
-//     poster: "https://lumiere-a.akamaihd.net/v1/images/r_ralphbreakstheinternet_header_ddt-17403_08ef6d92.jpeg?region=0,0,1024,1274&optimize=true"
-//   }, 
-//   {
-//     title: "The Grinch",
-//     rating: "G",
-//     currentlyPlaying: true,
-//     poster: "https://images-na.ssl-images-amazon.com/images/I/71vgX4VFdiL._SY679_.jpg"
-//   },
-//   {
-//     title: "A Star is Born",
-//     rating: "R",
-//     currentlyPlaying: false,
-//     poster: "https://images-na.ssl-images-amazon.com/images/I/718zWbDKmvL._SY606_.jpg"
-//   },
-//    {
-//     title: "Bohemian Rhapsody",
-//     rating: "PG-13",
-//     currentlyPlaying: true
-//   },
-//   {
-//     title: "Fantastic Beasts: The Crimes of Grindlewald",
-//     rating: "PG-13",
-//     currentlyPlaying: true,
-//     poster: "https://images-na.ssl-images-amazon.com/images/I/716fk%2BBZ-NL._SY606_.jpg"
-//   },
-//   {
-//     title: "Robin Hood",
-//     rating: "PG-13",
-//     currentlyPlaying: false,
-//     poster: "https://images-na.ssl-images-amazon.com/images/I/61K%2BTyGjsCL.jpg"
-//   },
-//   {
-//     title: "Spider-Man: Into the Spider-Verse",
-//     rating: "PG-13",
-//     currentlyPlaying: true,
-//   }
-// ]
-
 //     Use a for loop to loop through the movies, build an HTML representation of each movie, and insert it into the #movie-schedule container in the DOM.
 //     You can use any elements you like in your HTML string as long as all the data in the movieSchedule object is included.
+
+var movieSchedule = [
+    {
+      title: "Ralph Breaks the Internet",
+      rating: "PG",
+      currentlyPlaying: true,
+      poster: "https://lumiere-a.akamaihd.net/v1/images/r_ralphbreakstheinternet_header_ddt-17403_08ef6d92.jpeg?region=0,0,1024,1274&optimize=true"
+    }, 
+    {
+      title: "The Grinch",
+      rating: "G",
+      currentlyPlaying: true,
+      poster: "https://images-na.ssl-images-amazon.com/images/I/71vgX4VFdiL._SY679_.jpg"
+    },
+    {
+      title: "A Star is Born",
+      rating: "R",
+      currentlyPlaying: false,
+      poster: "https://images-na.ssl-images-amazon.com/images/I/718zWbDKmvL._SY606_.jpg"
+    },
+     {
+      title: "Bohemian Rhapsody",
+      rating: "PG-13",
+      currentlyPlaying: true
+    },
+    {
+      title: "Fantastic Beasts: The Crimes of Grindlewald",
+      rating: "PG-13",
+      currentlyPlaying: true,
+      poster: "https://images-na.ssl-images-amazon.com/images/I/716fk%2BBZ-NL._SY606_.jpg"
+    },
+    {
+      title: "Robin Hood",
+      rating: "PG-13",
+      currentlyPlaying: false,
+      poster: "https://images-na.ssl-images-amazon.com/images/I/61K%2BTyGjsCL.jpg"
+    },
+    {
+      title: "Spider-Man: Into the Spider-Verse",
+      rating: "PG-13",
+      currentlyPlaying: true,
+    }
+]
+ 
+// for(i = 0; i < movieSchedule.length; i++){
+//         document.querySelector("#movie-schedule").innerHTML += `<div><p><strong>Title:</strong> ${movieSchedule[i].title}</p> <p><strong>Rated:</strong>${movieSchedule[i].rating}</strong></p> <p>${movieSchedule.currentlyPlaying}</p> <img src=${movieSchedule[i].poster}></div>`
+// }
+
+  
+
 
 // More Challenges:
 // 5. Movie Schedule Take Two
@@ -176,6 +192,18 @@ for(i = 0; i < sandwichToppings.length; i++){
 //     Give all PG-rated movies a dotted yellow border that's 2px wide.
 //     Give all PG-13 movies a dotted orange border that's 2px wide.
 //     Give all R-rated movies a dotted red border that's 2px wide.
+
+for(i = 0; i < movieSchedule.length; i++){
+    if(movieSchedule[i].currentlyPlaying === true){
+        if(movieSchedule[i].poster != null){
+             document.querySelector("#movie-schedule").innerHTML += `<div class="movieContainer"><p><strong>Title:</strong> ${movieSchedule[i].title}</p> <p><strong>Rated:</strong>${movieSchedule[i].rating}</strong></p> <img src=${movieSchedule[i].poster}></div>`
+        }
+        else
+        {
+            document.querySelector("#movie-schedule").innerHTML += `<div><p><strong>Title:</strong> ${movieSchedule[i].title}</p> <p><strong>Rated:</strong>${movieSchedule[i].rating}</strong></p> <img src=https://www.snhrc.com/wp-content/uploads/2018/09/Image-Coming-Soon.png}></div>`
+        }
+    }
+}
 
 // 6. Cohort Website
 
