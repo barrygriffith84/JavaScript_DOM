@@ -193,14 +193,15 @@ var movieSchedule = [
 //     Give all PG-13 movies a dotted orange border that's 2px wide.
 //     Give all R-rated movies a dotted red border that's 2px wide.
 
+
 for(i = 0; i < movieSchedule.length; i++){
     if(movieSchedule[i].currentlyPlaying === true){
         if(movieSchedule[i].poster != null){
-             document.querySelector("#movie-schedule").innerHTML += `<div class="movieContainer"><p><strong>Title:</strong> ${movieSchedule[i].title}</p> <p><strong>Rated:</strong>${movieSchedule[i].rating}</strong></p> <img src=${movieSchedule[i].poster}></div>`
+             document.querySelector("#movie-schedule").innerHTML += `<div class="movieContainer" id="${movieSchedule[i].rating}"><h3>${movieSchedule[i].title}</h3> <h3>Rated:${movieSchedule[i].rating}</h3> <img src=${movieSchedule[i].poster} width="409" height="606"></div>`
         }
         else
         {
-            document.querySelector("#movie-schedule").innerHTML += `<div><p><strong>Title:</strong> ${movieSchedule[i].title}</p> <p><strong>Rated:</strong>${movieSchedule[i].rating}</strong></p> <img src=https://www.snhrc.com/wp-content/uploads/2018/09/Image-Coming-Soon.png}></div>`
+            document.querySelector("#movie-schedule").innerHTML += `<div class="movieContainer" id="${movieSchedule[i].rating}"><h3>${movieSchedule[i].title}</h3> <h3>Rated:${movieSchedule[i].rating}</h3> <img src=https://www.snhrc.com/wp-content/uploads/2018/09/Image-Coming-Soon.png}></div>`
         }
     }
 }

@@ -1,5 +1,27 @@
+.flexContainer{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
 .movieContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#G{
+    border: 2px dotted green; 
+}
+
+#PG{
+    border: 2px dotted yellow; 
+}
+
+#PG-13{
+    border: 2px dotted orange; 
+}
+
+#R{
+    border: 2px dotted red; 
 }
