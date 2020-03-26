@@ -219,29 +219,29 @@ for(i = 0; i < movieSchedule.length; i++){
 
 //     Copy and paste the following code in your JavaScript file:
 
-// var cohort1 = {
-//   name: "Cohort One",
-//   startDate: "January 15, 2018",
-//   endDate: "July 12, 2019",
-//   instructors: ["Kim", "Josh", "Jordan"],
-//   techStack: ["HTML", "CSS", "JavaScript", "React", "C#", ".NET"]
-// }
+var cohort1 = {
+  name: "Cohort One",
+  startDate: "January 15, 2018",
+  endDate: "July 12, 2019",
+  instructors: ["Kim", "Josh", "Jordan"],
+  techStack: ["HTML", "CSS", "JavaScript", "React", "C#", ".NET"]
+}
 
-// var cohort2 = {
-//  name: "Cohort Two",
-//  startDate: "August 15, 2019",
-//  endDate: "Feb 10, 2020",
-//  instructors: ["Tommy", "Jordan],
-//  techStack: ["HTML", "CSS", "JavaScript", "React", "C#", ".NET"]
-// }
+var cohort2 = {
+ name: "Cohort Two",
+ startDate: "August 15, 2019",
+ endDate: "Feb 10, 2020",
+ instructors: ["Tommy", "Jordan"],
+ techStack: ["HTML", "CSS", "JavaScript", "React", "C#", ".NET"]
+}
 
-// var cohort3 = {
-//  name: "Cohort Three",
-//  startDate: "April 6, 2020",
-//  endDate: "August 20, 2020",
-//  instructors: ["Tommy", "Jordan"],
-//  techStack: ["HTML", "CSS", "JavaScript", "React", "C#", ".NET"]
-// }
+var cohort3 = {
+ name: "Cohort Three",
+ startDate: "April 6, 2020",
+ endDate: "August 20, 2020",
+ instructors: ["Tommy", "Jordan"],
+ techStack: ["HTML", "CSS", "JavaScript", "React", "C#", ".NET"]
+}
 
 // function buildHtmlString(cohortObjectParameter){
 //   // YOUR CODE GOES HERE
@@ -267,6 +267,34 @@ for(i = 0; i < movieSchedule.length; i++){
 //     Store the returned value in a new variable called cohort1HTML.
 //     Call the printHtmlString function and pass in your cohort1HTML variable and the id of the element you want to print to ("cohort-one-container").
 //     Repeat steps 6-8 for cohort2 and cohort3
+
+function buildHtmlString(cohortObjectParameter){
+  var cohortString = `<h1>${cohortObjectParameter.name}</h1><h3>${cohortObjectParameter.startDate}</h3><h3>${cohortObjectParameter.endDate}</h3><ul><h3>Instructors</h3>`
+  for(i = 0; i < cohortObjectParameter.instructors.length; i++){
+    cohortString += `<li>${cohortObjectParameter.instructors[i]}</li>` 
+  }
+  cohortString += `</ul><ul><h3>Tech Stack</h3>`
+  for(i = 0; i < cohortObjectParameter.techStack.length; i++){
+    cohortString += `<li>${cohortObjectParameter.techStack[i]}</li>` 
+  }
+  cohortString += `</ul>`
+  return cohortString
+
+}
+
+function printHtmlString(htmlString, idContainer){
+  document.querySelector(`#${idContainer}`).innerHTML = htmlString
+}
+
+var cohort1HTML = buildHtmlString(cohort1);
+var cohort2HTML = buildHtmlString(cohort2);
+var cohort3HTML = buildHtmlString(cohort3);
+
+printHtmlString(cohort1HTML, "cohort-one-container")
+printHtmlString(cohort2HTML, "cohort-two-container")
+printHtmlString(cohort3HTML, "cohort-three-container")
+
+
 
 // 7. Weather Data
 
