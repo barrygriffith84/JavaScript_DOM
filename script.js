@@ -197,11 +197,11 @@ var movieSchedule = [
 for(i = 0; i < movieSchedule.length; i++){
     if(movieSchedule[i].currentlyPlaying === true){
         if(movieSchedule[i].poster != null){
-             document.querySelector("#movie-schedule").innerHTML += `<div class="movieContainer" id="${movieSchedule[i].rating}"><h3>${movieSchedule[i].title}</h3> <h3>Rated:${movieSchedule[i].rating}</h3> <img src=${movieSchedule[i].poster} width="409" height="606"></div>`
+             document.querySelector("#movie-schedule").innerHTML += `<div class="movieContainer ${movieSchedule[i].rating}"><h3>${movieSchedule[i].title}</h3> <h3>Rated:${movieSchedule[i].rating}</h3> <img src=${movieSchedule[i].poster} width="409" height="606"></div>`
         }
         else
         {
-            document.querySelector("#movie-schedule").innerHTML += `<div class="movieContainer" id="${movieSchedule[i].rating}"><h3>${movieSchedule[i].title}</h3> <h3>Rated:${movieSchedule[i].rating}</h3> <img src=https://www.snhrc.com/wp-content/uploads/2018/09/Image-Coming-Soon.png}></div>`
+            document.querySelector("#movie-schedule").innerHTML += `<div class="movieContainer ${movieSchedule[i].rating}" ><h3>${movieSchedule[i].title}</h3> <h3>Rated:${movieSchedule[i].rating}</h3> <img src=https://www.snhrc.com/wp-content/uploads/2018/09/Image-Coming-Soon.png}></div>`
         }
     }
 }
@@ -482,14 +482,33 @@ var weatherString = `<div class="weather-today"><h1>${weatherData.query.results.
 document.querySelector("#current-weather").innerHTML = weatherString
 
 
-var threeDayForecastString = "";
+var threeDayForecastString = ""; 
+var individualBackgroundClass = "";
+
 
 //For loop to build the three day forecast string
 for(i = 0; i < 3; i++){
-  threeDayForecastString += `<div class="forecast-day"><h3>${weatherData.query.results.channel.item.forecast[i].day} ${weatherData.query.results.channel.item.forecast[i].date}</h3> <p>Low: ${weatherData.query.results.channel.item.forecast[i].low}</p> <p>High: ${weatherData.query.results.channel.item.forecast[i].high}</p> <p>Weather Conditions: ${weatherData.query.results.channel.item.forecast[i].text}</p></div>`
+  threeDayForecastString += `<div class="forecast-day ${individualBackgroundClass}"><h3>${weatherData.query.results.channel.item.forecast[i].day} ${weatherData.query.results.channel.item.forecast[i].date}</h3> <p>Low: ${weatherData.query.results.channel.item.forecast[i].low}</p> <p>High: ${weatherData.query.results.channel.item.forecast[i].high}</p> <p>Weather Conditions: ${weatherData.query.results.channel.item.forecast[i].text}</p></div>`
 }
 
 document.querySelector("#weather-forecast").innerHTML += `<div  class="weather-container">${threeDayForecastString}</div>`
 
+console.log(weatherData.query.results.channel.item.forecast[0].high)
+
+
+//Using if statements to modify the background color for the entire page based on high temp results
+if(weatherData.query.results.channel.item.forecast[0].high > 85 && weatherData.query.results.channel.item.forecast[1].high > 85 && weatherData.query.results.channel.item.forecast[2].high > 85){
+  document.getElementById("body-id").style.backgroundColor = "tomato";
+}else if(weatherData.query.results.channel.item.forecast[0].high < 40 && weatherData.query.results.channel.item.forecast[1].high <40 && weatherData.query.results.channel.item.forecast[2].high < 40){
+  document.getElementById("body-id").style.backgroundColor = "lightblue";
+}
+
+
+//Using if statements to modify the background color of individual elements in weather-forecast
+if(weatherData.query.results.channel.item.forecast[0].low < 20 || weatherData.query.results.channel.item.forecast[1].low < 20 || weatherData.query.results.channel.item.forecast[2].low < 20){
+  document.getElementById("weather-forecast").style.backgroundColor = "darkblue";
+}else if(weatherData.query.results.channel.item.forecast[0].high > 95 || weatherData.query.results.channel.item.forecast[1].high > 95 || weatherData.query.results.channel.item.forecast[2].high > 95){
+  document.getElementById("weather-forecast").style.backgroundColor = "darkred";
+}
 
 
