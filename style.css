@@ -29,12 +29,23 @@
     border: 2px dotted red; 
 }
 
+.weather-today{
+    display:flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.weather-container{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;  
+}
+
 .forecast-day{
     display: flex;
-    flex-flow: wrap column;
+    flex-flow: column;
     align-items: center; 
     padding: 1rem;
     border: solid; 
-    margin: 1rem;
-    width: 25%;
+    /* margin: 1rem; */
 }
