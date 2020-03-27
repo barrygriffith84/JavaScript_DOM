@@ -8,6 +8,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1em;
+    padding: 1em;
+    background-color: wheat;
 }
 
 #G{
@@ -28,7 +31,10 @@
 
 .forecast-day{
     display: flex;
-    justify-content: space-evenly;
-    flex-flow: wrap;
-    padding: 1em;
+    flex-flow: wrap column;
+    align-items: center; 
+    padding: 1rem;
+    border: solid; 
+    margin: 1rem;
+    width: 25%;
 }

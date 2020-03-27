@@ -477,7 +477,7 @@ var weatherData = {
   }
  }
 
-var weatherString = `<div class="forecast-day"><h1>${weatherData.query.results.channel.location.city}, ${weatherData.query.results.channel.location.country},${weatherData.query.results.channel.location.region}</h1><h2>${weatherData.query.results.channel.item.condition.temp} Degrees Fahrenheit and ${weatherData.query.results.channel.item.condition.text}</h2></div>`
+var weatherString = `<div><h1>${weatherData.query.results.channel.location.city}, ${weatherData.query.results.channel.location.country},${weatherData.query.results.channel.location.region}</h1><h2>${weatherData.query.results.channel.item.condition.temp} Degrees Fahrenheit and ${weatherData.query.results.channel.item.condition.text}</h2></div>`
 
 document.querySelector("#current-weather").innerHTML = weatherString
 
@@ -486,7 +486,7 @@ var threeDayForecastString = "";
 
 //For loop to build the three day forecast string
 for(i = 0; i < 3; i++){
-  threeDayForecastString += `<div class="forecast-day"><h3>${weatherData.query.results.channel.item.forecast[i].day} ${weatherData.query.results.channel.item.forecast[i].date}</h3> <p>${weatherData.query.results.channel.item.forecast[i].high}</p><p>${weatherData.query.results.channel.item.forecast[i].low}</p><p>${weatherData.query.results.channel.item.forecast[i].text}</p></div>`
+  threeDayForecastString += `<div class="forecast-day"><h3>${weatherData.query.results.channel.item.forecast[i].day} ${weatherData.query.results.channel.item.forecast[i].date}</h3> <p>${weatherData.query.results.channel.item.forecast[i].high}</p><p>${weatherData.query.results.channel.item.forecast[i].low}</p> <p>${weatherData.query.results.channel.item.forecast[i].text}</p></div>`
 }
 
 document.querySelector("#weather-forecast").innerHTML += threeDayForecastString
